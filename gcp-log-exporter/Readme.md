@@ -3,7 +3,7 @@
 This repo contains an example of code to use with code functions to export logs from buckets to Coralogix using cloud functions.
 
 ## Installation manual
-Coralogix doccumentations can be found [Here](https://coralogix.com/integrations/gcp-log-explorer/)
+Coralogix documentations can be found [Here](https://coralogix.com/integrations/gcp-log-explorer/)
 
 ## Configuration
 ### A few basic environment variables are required here:
