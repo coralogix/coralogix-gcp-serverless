@@ -11,7 +11,7 @@ Coralogix documentations can be found [Here](https://coralogix.com/integrations/
 - app_name - Your application name, this is how you can label your pplications logs.
 - sub_name - Your subsystem name, this is a second label for your applications logs.
 
-If your Coralogix account ttop level domain is different than ‘.com’ add the following environment variable, 
+If your Coralogix account top level domain is different than ‘.com’ add the following environment variable, 
 ```
 CORALOGIX_LOG_URL=https://api.<Cluster URL>/api/v1/logs
 ```
