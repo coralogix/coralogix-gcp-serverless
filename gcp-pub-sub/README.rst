@@ -12,11 +12,12 @@ gcloud CLI
 To setup the function, execute this:
 
 .. code-block:: bash
+
 	#First lets clone the repository
-	git clone https://github.com/coralogix/coralogix-gcp-serverless.git &&
-    	cd coralogix-gcp-serverles
+	$ git clone https://github.com/coralogix/coralogix-gcp-serverless.git &&
+    	$ cd coralogix-gcp-serverles
     
-	gcloud functions deploy gcp-pub-sub \
+	$ gcloud functions deploy gcp-pub-sub \
 		--project=<YOUR_GCP_PROJECT_ID> \
 		--region=<GCP_REGION_NAME> \
 		--runtime=python38 \
