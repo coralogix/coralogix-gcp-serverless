@@ -3,11 +3,12 @@ Google Cloud Pub/Sub
 
 *Coralogix* provides a predefined function to forward your logs from ``Google Cloud Pub/Sub`` straight to *Coralogix*.
 
-Setup
------
-
-gcloud CLI
-~~~~~~~~~~
+Requirements:
+-------------
+* A Coralogix account
+* Installation of GCP Cli
+* A working gcp topic
+* Permissions to configure a function.
 
 To setup the function, execute this:
 
