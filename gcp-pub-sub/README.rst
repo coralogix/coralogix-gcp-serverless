@@ -6,8 +6,8 @@ Google Cloud Pub/Sub
 Requirements:
 -------------
 * A Coralogix account
-* Installation of GCP Cli
-* A working gcp topic
+* Installation of GCP CLI (gcloud)
+* A working Pub/Sub topic
 * Permissions to configure a function.
 
 To setup the function, execute this:
@@ -21,10 +21,10 @@ To setup the function, execute this:
 	$ gcloud functions deploy gcp-pub-sub \
 		--project=<YOUR_GCP_PROJECT_ID> \
 		--region=<GCP_REGION_NAME> \
-		--runtime=python38 \
+		--runtime=nodejs14 \
 		--memory=1024MB \
 		--timeout=60s \
-		--entry-point=to_coralogix \
+		--entry-point=mainPubSub \
 		--source=gcp-pub-sub \
 		--trigger-resource=<YOUR_PUBSUB_TOPIC_NAME> \
 		--trigger-event=google.pubsub.topic.publish \
