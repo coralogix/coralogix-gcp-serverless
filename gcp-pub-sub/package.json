@@ -1,0 +1,44 @@
+{
+  "name": "coralogix-gcp-pubsub",
+  "title": "GCP Function for Coralogix & Google Pub/Sub",
+  "version": "1.0.0",
+  "description": "GCP Function to send logs from Google Pub/Sub topic to Coralogix",
+  "homepage": "https://coralogix.com",
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "author": {
+    "name": "Coralogix",
+    "email": "info@coralogix.com",
+    "url": "https://coralogix.com"
+  },
+  "engines": {
+    "node": "14.x"
+  },
+  "contributors": [
+    {
+      "name": "Eldar Aliiev",
+      "email": "eldar@coralogix.com",
+      "url": "https://github.com/EldarAliiev"
+    }
+  ],
+  "keywords": [
+    "coralogix",
+    "logs",
+    "gcp",
+    "pubsub",
+    "javascript",
+    "library"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/coralogix/coralogix-gcp-serverless.git"
+  },
+  "bugs": {
+    "email": "info@coralogix.com",
+    "url": "https://github.com/coralogix/coralogix-gcp-serverless/issues"
+  },
+  "files": [
+    "LICENSE",
+    "README.md"
+  ]
+}
