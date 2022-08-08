@@ -38,6 +38,8 @@ const coralogixUrl = process.env.CORALOGIX_URL || "api.coralogix.com";
             response.on("end", () => {
                 if (response.statusCode != 200) throw new Error(responseBody);
                 console.log("Body: %s", responseBody);
+                // signal function completion
+                callback()
             });
         });
 
