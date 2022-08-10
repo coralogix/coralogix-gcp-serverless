@@ -26,6 +26,6 @@ To setup the function, execute this:
 		--timeout=60s \
 		--entry-point=mainPubSub \
 		--source=gcp-pub-sub \
-		--trigger-resource=<YOUR_PUBSUB_TOPIC_NAME> \
-		--trigger-event=google.pubsub.topic.publish \
+		--trigger-topic=<YOUR_PUBSUB_TOPIC_NAME> \
 		--set-env-vars="private_key=<YOUR_PRIVATE_KEY>,app_name=<APP_NAME>,sub_name=<SUB_NAME>"
+	# additional variables available and their defaults: 'newline_pattern=/(?:\r\n|\r|\n)/g', 'sampling=1', 'CORALOGIX_URL=api.coralogix.com'
