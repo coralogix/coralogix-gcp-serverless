@@ -13,7 +13,7 @@ Coralogix documentations can be found [Here](https://coralogix.com/integrations/
 
 If your Coralogix account top level domain is different than ‘.com’ add the following environment variable, 
 ```
-CORALOGIX_LOG_URL=https://api.<Cluster URL>/api/v1/logs
+CORALOGIX_LOG_URL=https://<Cluster URL>/api/v1/logs
 ```
 
 Requirements:
