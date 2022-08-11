@@ -31,7 +31,6 @@ PRIVATE_KEY = os.environ.get('private_key')
 APP_NAME = os.environ.get('app_name', 'NO_APPLICATION')
 SUB_SYSTEM = os.environ.get('sub_name', 'NO_SUBSYSTEM')
 NEWLINE_PATTERN = os.environ.get('newline_pattern', '(?:\r\n|\r|\n)')
-CORALOGIX_LOG_URL=os.environ.get('Cluster_url', 'coralogix.com')
 
 
 # Function entrypoint
