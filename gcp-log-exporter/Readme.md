@@ -1,4 +1,4 @@
-## GCP log exporter
+# GCP log exporter
 
 This repo contains an example of code to use with code functions to export logs from buckets to Coralogix using cloud functions.
 
