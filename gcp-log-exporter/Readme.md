@@ -38,7 +38,7 @@ To setup the function, execute this:
 		--memory=1024MB \
 		--timeout=300s \
 		--entry-point=to_coralogix \
-		--trigger-bucket=<YOUR_STORAGE_BUCKET> \
+		--trigger-bucket=<YOUR_STORAGE_BUCKET_NAME> \
 		--source=gcp-log-exporter \
 		--set-env-vars="private_key=<YOUR_PRIVATE_KEY>,app_name=<APP_NAME>,sub_name=<SUB_NAME>"
 	# additional variables available and their defaults: 'newline_pattern=/(?:\r\n|\r|\n)/g', 'sampling=1', 'CORALOGIX_URL=api.coralogix.com'
