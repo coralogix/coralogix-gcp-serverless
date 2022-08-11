@@ -41,4 +41,4 @@ To setup the function, execute this:
 		--trigger-bucket=<YOUR_STORAGE_BUCKET_NAME> \
 		--source=gcp-log-exporter \
 		--set-env-vars="private_key=<YOUR_PRIVATE_KEY>,app_name=<APP_NAME>,sub_name=<SUB_NAME>"
-	# additional variables available and their defaults: 'newline_pattern=/(?:\r\n|\r|\n)/g', 'sampling=1', 'CORALOGIX_URL=api.coralogix.com'
+	# additional variables available and their defaults: 'newline_pattern=/(?:\r\n|\r|\n)/g'
