@@ -13,9 +13,33 @@ Coralogix documentations can be found [Here](https://coralogix.com/integrations/
 
 If your Coralogix account top level domain is different than ‘.com’ add the following environment variable, 
 ```
+Cluster_url=
 CORALOGIX_LOG_URL=https://api.<Cluster URL>/api/v1/logs
 ```
 
-### And general configs
-- Entry Point - To_coralogix
-- Runtime - Python3.8
+Requirements:
+-------------
+* A Coralogix account
+* Installation of GCP CLI (gcloud)
+* A GCP cloud storage configured.
+* Permissions to configure a function.
+
+To setup the function, execute this:
+
+.. code-block:: bash
+
+	#First lets clone the repository
+	$ git clone https://github.com/coralogix/coralogix-gcp-serverless.git &&
+    	$ cd coralogix-gcp-serverless
+    
+	$ gcloud functions deploy gcp-log-exporter \
+		--project=<YOUR_GCP_PROJECT_ID> \
+		--region=<GCP_REGION_NAME> \
+		--runtime=python39 \
+		--memory=1024MB \
+		--timeout=300s \
+		--entry-point=to_coralogix \
+		--trigger-bucket=<YOUR_STORAGE_BUCKET> \
+		--source=gcp-log-exporter \
+		--set-env-vars="private_key=<YOUR_PRIVATE_KEY>,app_name=<APP_NAME>,sub_name=<SUB_NAME>"
+	# additional variables available and their defaults: 'newline_pattern=/(?:\r\n|\r|\n)/g', 'sampling=1', 'CORALOGIX_URL=api.coralogix.com'

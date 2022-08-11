@@ -18,12 +18,12 @@ from coralogix.handlers import CoralogixLogger
 __name__ = 'gcsToCoralogix'
 __author__ = 'Coralogix Ltd.'
 __email__ = 'info@coralogix.com'
-__copyright__ = 'Copyright 2021, Coralogix Ltd.'
+__copyright__ = 'Copyright 2022, Coralogix Ltd.'
 __credits__ = ['Ariel Assaraf', 'Amnon Shahar', 'Eldar Aliiev']
 __license__ = 'Apache Version 2.0'
-__version__ = '1.0.0'
+__version__ = '1.0.1'
 __maintainer__ = 'Coralogix Ltd.'
-__date__ = '8 February 2021'
+__date__ = '11 Aug 2022'
 __status__ = 'Stable'
 
 # Get function parameters
@@ -31,6 +31,7 @@ PRIVATE_KEY = os.environ.get('private_key')
 APP_NAME = os.environ.get('app_name', 'NO_APPLICATION')
 SUB_SYSTEM = os.environ.get('sub_name', 'NO_SUBSYSTEM')
 NEWLINE_PATTERN = os.environ.get('newline_pattern', '(?:\r\n|\r|\n)')
+CORALOGIX_LOG_URL=os.environ.get('Cluster_url', 'coralogix.com')
 
 
 # Function entrypoint
@@ -42,22 +43,6 @@ def to_coralogix(event, context):
     :param context: event context
     :type context: dict
     """
-
-    def get_severity(message: str) -> int:
-        """
-        Extract severity from message text
-        :param message: log record text
-        :type message: str
-        :return: severity value
-        :rtype: int
-        """
-        severity = 3
-        if 'Warning' in message or 'warn' in message:
-            severity = 4
-        if 'Error' in message or 'Exception' in message:
-            severity = 5
-        return severity
-
     # Initialize GCS client
     client = storage.Client()
 
@@ -98,3 +83,19 @@ def to_coralogix(event, context):
             log,
             thread_id=f"{event['bucket']}/{event['name']}"
         )
+
+def get_severity(message: str) -> int:
+    """
+    Extract severity from message text
+    :param message: log record text
+    :type message: str
+    :return: severity value
+    :rtype: int
+    """
+    severity = 3
+    if 'Warning' in message or 'warn' in message:
+        severity = 4
+    if 'Error' in message or 'Exception' in message:
+        severity = 5
+    return severity
+
