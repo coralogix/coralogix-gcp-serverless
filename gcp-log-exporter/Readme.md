@@ -16,6 +16,11 @@ If your Coralogix account top level domain is different than ‘.com’ add the 
 CORALOGIX_LOG_URL=https://<Cluster URL>/api/v1/logs
 ```
 
+By Default the newline_pattern is :
+To change it to Multiline pattern create an envioronment variable as such:
+newline_pattern=^\d\w\D\W*
+This will make logs to come as one batch and not as single line.
+
 Requirements:
 -------------
 * A Coralogix account
@@ -41,4 +46,4 @@ To setup the function, execute this:
 		--trigger-bucket=<YOUR_STORAGE_BUCKET_NAME> \
 		--source=gcp-log-exporter \
 		--set-env-vars="private_key=<YOUR_PRIVATE_KEY>,app_name=<APP_NAME>,sub_name=<SUB_NAME>"
-	# additional variables available and their defaults: 'newline_pattern=/(?:\r\n|\r|\n)/g', 'CORALOGIX_LOG_URL=https://<Cluster URL>/api/v1/logs'
+	# additional variables available and their defaults: 'newline_pattern=(?:\r\n|\r|\n)', 'CORALOGIX_LOG_URL=https://<Cluster URL>/api/v1/logs'
