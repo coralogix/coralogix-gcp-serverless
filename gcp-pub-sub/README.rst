@@ -1,6 +1,13 @@
 Google Cloud Pub/Sub
 ====================
 
+.. warning::
+
+   **[NOTICE]** This function is deprecated in favor of the `gcp-logs <https://coralogix.com/docs/integrations/gcp/gcp-logs/>`_ pull integration.
+   Please use the new integration for all new GCP logs integrations.
+   `terraform-provider-coralogix <https://github.com/coralogix/terraform-provider-coralogix>`_ provides the ``coralogix_integration`` resource for this.
+   Runtime support for `nodejs14 <https://cloud.google.com/functions/docs/runtime-support#node.js>`_ on Cloud Run Functions will decommission soon.
+
 *Coralogix* provides a predefined function to forward your logs from ``Google Cloud Pub/Sub`` straight to *Coralogix*.
 
 Requirements:

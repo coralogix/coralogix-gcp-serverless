@@ -1,5 +1,7 @@
 # GCP log exporter
 
+> **[NOTICE]** This function is deprecated in favor of the [gcp-logs](https://coralogix.com/docs/integrations/gcp/gcp-logs/) pull integration. Please use the new integration for all new GCP logs integrations. [terraform-provider-coralogix](https://github.com/coralogix/terraform-provider-coralogix) provides the `coralogix_integration` resource for this.
+
 This repo contains an example of code to use with code functions to export logs from buckets to Coralogix using cloud functions.
 
 ## Installation manual

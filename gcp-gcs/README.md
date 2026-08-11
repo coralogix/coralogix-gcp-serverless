@@ -4,6 +4,8 @@ date: "2025-01-30"
 coverImage: "icon_cloud_192pt_clr-1.png"
 ---
 
+> **[NOTICE]** This function is deprecated in favor of the [gcp-logs](https://coralogix.com/docs/integrations/gcp/gcp-logs/) pull integration. Please use the new integration for all new GCP logs integrations. [terraform-provider-coralogix](https://github.com/coralogix/terraform-provider-coralogix) provides the `coralogix_integration` resource for this.
+
 Coralogix provides a predefined function to forward your logs from Google Cloud Platform (GCP) Storage straight to Coralogix.
 
 ## Setup
