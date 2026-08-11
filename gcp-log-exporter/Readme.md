@@ -11,13 +11,10 @@ Coralogix documentations can be found [Here](https://coralogix.com/integrations/
 - app_name - Your application name, this is how you can label your pplications logs.
 - sub_name - Your subsystem name, this is a second label for your applications logs.
 
-If your Coralogix account is not in the `EU1` region, add the following environment variable, using the
-[Coralogix domain](https://coralogix.com/docs/user-guides/account-management/account-settings/coralogix-domain/)
-for your region:
+If your Coralogix account top level domain is different than ‘.com’ add the following environment variable, 
 ```
-CORALOGIX_LOG_URL=https://ingress.<CORALOGIX_DOMAIN>/api/v1/logs
+CORALOGIX_LOG_URL=https://<Cluster URL>/api/v1/logs
 ```
-For example, an account on `us1.coralogix.com` uses `https://ingress.us1.coralogix.com/api/v1/logs`.
 
 Requirements:
 -------------
@@ -44,4 +41,4 @@ To setup the function, execute this:
 		--trigger-bucket=<YOUR_STORAGE_BUCKET_NAME> \
 		--source=gcp-log-exporter \
 		--set-env-vars="private_key=<YOUR_PRIVATE_KEY>,app_name=<APP_NAME>,sub_name=<SUB_NAME>"
-	# additional variables available and their defaults: 'newline_pattern=/(?:\r\n|\r|\n)/g', 'CORALOGIX_LOG_URL=https://ingress.<CORALOGIX_DOMAIN>/api/v1/logs'
+	# additional variables available and their defaults: 'newline_pattern=/(?:\r\n|\r|\n)/g', 'CORALOGIX_LOG_URL=https://<Cluster URL>/api/v1/logs'
