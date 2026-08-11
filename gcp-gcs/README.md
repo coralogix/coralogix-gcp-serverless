@@ -82,7 +82,7 @@ region = "us-central1"
 module "storage" {
   source = "coralogix/google/coralogix//modules/storage"
 
-  coralogix_region = "Europe"
+  coralogix_region = "EU1"
   private_key      = "YOUR_API_KEY"
   application_name = "GCP"
   subsystem_name   = "GCS"
