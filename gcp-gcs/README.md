@@ -10,25 +10,30 @@ Coralogix provides a predefined function to forward your logs from Google Cloud 
 
 There are two methods to deploy this integration. The first is using gcloud cli, and the second is to use our Terraform module.
 
-For the gcloud cli method, you will need to select the coralogix domain endpoint that corresponds to your Coralogix AWS region from the table below. You will also need a service account with the necessary permissions to invoke the function, access storage buckets and objects, and receive Eventarc events. Check the Service Account Setup section below for example steps to create the service account and custom role.
+For the gcloud cli method, you will need to select the coralogix domain endpoint that corresponds to your Coralogix region from the table below. You will also need a service account with the necessary permissions to invoke the function, access storage buckets and objects, and receive Eventarc events. Check the Service Account Setup section below for example steps to create the service account and custom role.
 
 ### Coralogix Legacy Logs API
 
-| Coralogix Domain | Coralogix AWS Region | Endpoint |
+| Coralogix Domain | Cloud Provider Region | Endpoint |
 | --- | --- | --- |
-| coralogix.com | eu-west-1<br/>[EU1 - Ireland] | https://ingress.coralogix.com/api/v1/logs |
-| coralogix.in | ap-south1<br/>[AP1 - India] | https://ingress.coralogix.in/api/v1/logs |
-| coralogix.us | us-east2<br/>[US1 - Ohio] | https://ingress.coralogix.us/api/v1/logs |
-| eu2.coralogix.com | eu-north-1<br/>[EU2 - Stockholm] | https://ingress.eu2.coralogix.com/api/v1/logs |
-| coralogixsg.com | ap-southeast-1<br/>[AP2 - Singapore] | https://ingress.coralogixsg.com/api/v1/logs |
-| cx498.coralogix.com | us-west-2<br/>[US2 - Oregon] | https://ingress.cx498.coralogix.com/api/v1/logs |
-| ap3.coralogix.com | ap-southeast-3<br/>[AP3 - Jakarta] | https://ingress.ap3.coralogix.com/api/v1/logs |
+| eu1.coralogix.com | AWS eu-west-1<br/>[EU1 - Ireland] | https://ingress.eu1.coralogix.com/api/v1/logs |
+| eu2.coralogix.com | AWS eu-north-1<br/>[EU2 - Stockholm] | https://ingress.eu2.coralogix.com/api/v1/logs |
+| us1.coralogix.com | AWS us-east-2<br/>[US1 - Ohio] | https://ingress.us1.coralogix.com/api/v1/logs |
+| us2.coralogix.com | AWS us-west-2<br/>[US2 - Oregon] | https://ingress.us2.coralogix.com/api/v1/logs |
+| ap1.coralogix.com | AWS ap-south-1<br/>[AP1 - Mumbai] | https://ingress.ap1.coralogix.com/api/v1/logs |
+| ap2.coralogix.com | AWS ap-southeast-1<br/>[AP2 - Singapore] | https://ingress.ap2.coralogix.com/api/v1/logs |
+| ap3.coralogix.com | AWS ap-southeast-3<br/>[AP3 - Jakarta] | https://ingress.ap3.coralogix.com/api/v1/logs |
 
-For example, if your top level domain is coralogix.us, use the following as your endpoints:
+**NOTE** - The `US3` region (`us3.coralogix.com`, GCP us-central1) does not serve the legacy Logs API that this
+integration uses, so it is not listed above. See the
+[Coralogix domain](https://coralogix.com/docs/user-guides/account-management/account-settings/coralogix-domain/)
+documentation for the full list of regions.
+
+For example, if your Coralogix domain is us1.coralogix.com, use the following as your endpoints:
 
 ``` bash
-CORALOGIX_LOG_URL=https://ingress.coralogix.us/api/v1/logs
-CORALOGIX_TIME_DELTA_URL=https://ingress.coralogix.us/sdk/v1/time
+CORALOGIX_LOG_URL=https://ingress.us1.coralogix.com/api/v1/logs
+CORALOGIX_TIME_DELTA_URL=https://ingress.us1.coralogix.com/sdk/v1/time
 ```
 
 ### gcloud CLI
@@ -55,7 +60,7 @@ gcloud functions deploy gcsToCoralogix \
 --trigger-resource=YOUR_BUCKET_NAME \
 --trigger-event=google.storage.object.finalize \
 --service-account=YOUR_SERVICE_ACCOUNT_EMAIL \
---set-env-vars="private_key=YOUR_PRIVATE_KEY,app_name=APP_NAME,sub_name=SUB_NAME,CORALOGIX_LOG_URL=https://ingress.coralogix.com/api/v1/logs,CORALOGIX_TIME_DELTA_URL=https://ingress.coralogix.com/sdk/v1/time"
+--set-env-vars="private_key=YOUR_PRIVATE_KEY,app_name=APP_NAME,sub_name=SUB_NAME,CORALOGIX_LOG_URL=https://ingress.eu1.coralogix.com/api/v1/logs,CORALOGIX_TIME_DELTA_URL=https://ingress.eu1.coralogix.com/sdk/v1/time"
 ```
 
 After deploying, double check your Google Cloud console to validate the Cloud Function was deployed as expected.
